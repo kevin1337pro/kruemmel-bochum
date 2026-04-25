@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="K. W. Krümmel GmbH Bochum – Frische Fleisch- und Wurstwaren direkt vom Schlachthof. Über 800 Produkte, faire Preise, direkt an der A40." />
+  <meta name="theme-color" content="#9B2D20" />
+  <title>Krümmel Bochum – Frische Fleisch- & Wurstwaren direkt vom Schlachthof</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item">📍 Direkt an der A40 · Bochum</span>
+      <span class="topbar__item">📞 <a href="tel:+492348900900">0234 / 890 09 00</a></span>
+      <span class="topbar__item topbar__item--hide-sm">🕓 Heute geöffnet bis 18:00</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="#top" class="header__logo" aria-label="Krümmel Bochum – Startseite">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul class="nav__list">
+          <li><a href="#angebote">Angebote</a></li>
+          <li><a href="#frankfurter">Frankfurter</a></li>
+          <li><a href="produkte.html">Sortiment</a></li>
+          <li><a href="#tiernahrung">Tiernahrung</a></li>
+          <li><a href="#betrieb">Betrieb</a></li>
+          <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#angebote">Angebote</a>
+      <a href="#frankfurter">Frankfurter</a>
+      <a href="produkte.html">Sortiment</a>
+      <a href="#tiernahrung">Tiernahrung</a>
+      <a href="#betrieb">Betrieb</a>
+      <a href="#standort">Standort</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <span class="hero__eyebrow">K. W. Krümmel GmbH · seit Generationen</span>
+        <h1 class="hero__title">
+          Frische Fleisch- &amp; Wurstwaren<br />
+          <span class="hero__title-accent">direkt vom Schlachthof.</span>
+        </h1>
+        <p class="hero__subtitle">
+          Über 800 Produkte · täglich frisch · direkt an der A40 in Bochum.
+        </p>
+        <div class="hero__cta">
+          <a href="#angebote" class="btn btn--primary">Angebote ansehen</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Krümmel+Bochum" target="_blank" rel="noopener" class="btn btn--ghost">Route planen</a>
+        </div>
+        <ul class="hero__badges" aria-label="Vertrauenssignale">
+          <li>🥩 Eigene Verarbeitung</li>
+          <li>🚚 Direktverkauf</li>
+          <li>🔥 Grill-Spezialist</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Lieferservice-Banner (Sa & So) -->
+    <section class="delivery-banner" aria-label="Lieferservice am Wochenende">
+      <div class="container delivery-banner__inner">
+        <div class="delivery-banner__icon" aria-hidden="true">🚚</div>
+        <div class="delivery-banner__text">
+          <strong>Neu: Lieferservice am Wochenende</strong>
+          <span>Samstag &amp; Sonntag im Umkreis von 15 km – ab 25 € Bestellwert.</span>
+        </div>
+        <a href="tel:+492348900900" class="delivery-banner__cta">Jetzt bestellen →</a>
+      </div>
+    </section>
+
+    <!-- USPs -->
+    <section class="usps" aria-labelledby="usps-title">
+      <div class="container">
+        <h2 id="usps-title" class="visually-hidden">Warum Krümmel Bochum</h2>
+        <div class="usps__grid">
+          <div class="usp">
+            <div class="usp__icon" aria-hidden="true">🥩</div>
+            <h3>Eigene Verarbeitung</h3>
+            <p>Schlachtung und Verarbeitung direkt auf dem Gelände – kurze Wege, frische Ware.</p>
+          </div>
+          <div class="usp">
+            <div class="usp__icon" aria-hidden="true">💰</div>
+            <h3>Faire Preise</h3>
+            <p>Direktverkauf ohne Zwischenhandel – Qualität zum ehrlichen Preis.</p>
+          </div>
+          <div class="usp">
+            <div class="usp__icon" aria-hidden="true">🔥</div>
+            <h3>Riesige Auswahl</h3>
+            <p>Über 800 Produkte für Grill, Alltag und Großabnehmer – alles unter einem Dach.</p>
+          </div>
+          <div class="usp">
+            <div class="usp__icon" aria-hidden="true">🕓</div>
+            <h3>Früh geöffnet</h3>
+            <p>Ideal für Gewerbe, Gastronomie und Frühaufsteher – ab 7:00 Uhr für Sie da.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Angebote (Conversion-Treiber) -->
+    <section class="offers section" id="angebote" aria-labelledby="offers-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">Diese Woche</span>
+          <h2 id="offers-title" class="section__title">Aktuelle Angebote</h2>
+          <p class="section__lead">Solange der Vorrat reicht. Gültig bis Samstag.</p>
+        </div>
+
+        <div class="offers__grid">
+          <article class="offer offer--featured">
+            <div class="offer__badge">Beliebt</div>
+            <div class="offer__image" style="background-image:url('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1200&q=70');"></div>
+            <div class="offer__body">
+              <h3 class="offer__title">Nackensteaks vom Schwein</h3>
+              <p class="offer__desc">Mariniert, grillfertig – aus eigener Verarbeitung.</p>
+              <div class="offer__price">
+                <span class="offer__price-old">7,99&nbsp;€</span>
+                <span class="offer__price-new">5,49&nbsp;€<span class="offer__unit"> / kg</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer">
+            <div class="offer__image" style="background-image:url('https://images.unsplash.com/photo-1602273660127-a0000560a4c1?auto=format&fit=crop&w=1200&q=70');"></div>
+            <div class="offer__body">
+              <h3 class="offer__title">Rinderhackfleisch frisch</h3>
+              <p class="offer__desc">Täglich frisch gewolft, ideal für Bolognese &amp; Burger.</p>
+              <div class="offer__price">
+                <span class="offer__price-old">9,49&nbsp;€</span>
+                <span class="offer__price-new">6,99&nbsp;€<span class="offer__unit"> / kg</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer">
+            <div class="offer__image" style="background-image:url('https://images.unsplash.com/photo-1626200419199-391ae4be7a41?auto=format&fit=crop&w=1200&q=70');"></div>
+            <div class="offer__body">
+              <h3 class="offer__title">Rostbratwurst grob</h3>
+              <p class="offer__desc">Hausmacher Art – nach traditioneller Rezeptur.</p>
+              <div class="offer__price">
+                <span class="offer__price-old">8,49&nbsp;€</span>
+                <span class="offer__price-new">5,99&nbsp;€<span class="offer__unit"> / kg</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer">
+            <div class="offer__image" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=70');"></div>
+            <div class="offer__body">
+              <h3 class="offer__title">Grillpaket „Familie"</h3>
+              <p class="offer__desc">5 kg gemischt – Steaks, Würste, Spieße.</p>
+              <div class="offer__price">
+                <span class="offer__price-old">39,99&nbsp;€</span>
+                <span class="offer__price-new">29,90&nbsp;€<span class="offer__unit"> / Paket</span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="offers__footer">
+          <a href="#kontakt" class="btn btn--primary">Telefonisch vorbestellen</a>
+          <a href="produkte.html" class="btn btn--ghost">Zum gesamten Sortiment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hausgemachte Frankfurter – Signature Spotlight -->
+    <section class="frankfurter" id="frankfurter" aria-labelledby="frankfurter-title">
+      <div class="frankfurter__bg" aria-hidden="true"></div>
+      <div class="container frankfurter__inner">
+        <div class="frankfurter__badge">⭐ Unsere Spezialität</div>
+        <span class="section__eyebrow section__eyebrow--light">Hausgemacht in Bochum</span>
+        <h2 id="frankfurter-title" class="section__title section__title--light">
+          Der hausgemachte<br />Krümmel-Frankfurter.
+        </h2>
+        <p class="frankfurter__lead">
+          Über Buchenholz geräuchert, im eigenen Saitling gefüllt, ohne Geschmacksverstärker.
+          Genau so, wie es seit Jahrzehnten im Hause Krümmel gemacht wird.
+        </p>
+
+        <div class="frankfurter__grid">
+          <div class="frank-feature">
+            <span class="frank-feature__icon">🌳</span>
+            <h3>Buchenholz-Räucherung</h3>
+            <p>Mild und aromatisch geräuchert – kein Flüssigrauch, keine Abkürzung.</p>
+          </div>
+          <div class="frank-feature">
+            <span class="frank-feature__icon">🥩</span>
+            <h3>100 % aus eigener Verarbeitung</h3>
+            <p>Vom Schlachthof am Standort direkt in die Wurstküche – keine Zwischenstationen.</p>
+          </div>
+          <div class="frank-feature">
+            <span class="frank-feature__icon">📜</span>
+            <h3>Familienrezeptur</h3>
+            <p>Über Generationen bewahrt. Keine Fertigmischung, kein Geschmacksverstärker.</p>
+          </div>
+        </div>
+
+        <div class="frankfurter__variants">
+          <article class="frank-variant">
+            <h3>Klassisch</h3>
+            <p>5 Stück, vakuumiert</p>
+            <div class="frank-variant__price">5,90 € <span>/ Packung</span></div>
+          </article>
+          <article class="frank-variant frank-variant--featured">
+            <div class="frank-variant__tag">Beliebt</div>
+            <h3>Premium geräuchert</h3>
+            <p>5 Stück, doppelt geräuchert</p>
+            <div class="frank-variant__price">6,90 € <span>/ Packung</span></div>
+          </article>
+          <article class="frank-variant">
+            <h3>Familienpack</h3>
+            <p>10 Stück, ideal zum Einfrieren</p>
+            <div class="frank-variant__price">10,90 € <span>/ Packung</span></div>
+          </article>
+        </div>
+
+        <div class="frankfurter__cta">
+          <a href="tel:+492348900900" class="btn btn--primary">📞 Frankfurter vorbestellen</a>
+          <a href="produkte.html?kategorie=frankfurter" class="btn btn--ghost-light">Alle Varianten ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produktwelten -->
+    <section class="worlds section section--light" id="produkte" aria-labelledby="worlds-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">Sortiment</span>
+          <h2 id="worlds-title" class="section__title">Unsere Produktwelten</h2>
+          <p class="section__lead">Vom Frühstück bis zum Grillabend – alles unter einem Dach.</p>
+        </div>
+
+        <div class="worlds__grid">
+          <a class="world" href="produkte.html?kategorie=fleisch" style="background-image:url('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1000&q=70');">
+            <span class="world__label">Fleisch</span>
+          </a>
+          <a class="world" href="produkte.html?kategorie=wurst" style="background-image:url('https://images.unsplash.com/photo-1601001435957-74f0958a93c0?auto=format&fit=crop&w=1000&q=70');">
+            <span class="world__label">Wurstwaren</span>
+          </a>
+          <a class="world" href="produkte.html?kategorie=grill" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=70');">
+            <span class="world__label">Grillprodukte</span>
+          </a>
+          <a class="world" href="produkte.html?kategorie=fertig" style="background-image:url('https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1000&q=70');">
+            <span class="world__label">Fertiggerichte</span>
+          </a>
+          <a class="world" href="produkte.html?kategorie=fisch-kaese" style="background-image:url('https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1000&q=70');">
+            <span class="world__label">Fisch &amp; Käse</span>
+          </a>
+          <a class="world" href="produkte.html?kategorie=suppen" style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=70');">
+            <span class="world__label">Suppen &amp; Eintöpfe</span>
+          </a>
+        </div>
+
+        <div class="worlds__cta">
+          <a href="produkte.html" class="btn btn--primary">Vollständigen Produktkatalog ansehen →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiernahrung – frisch &amp; hausgemacht -->
+    <section class="pet section" id="tiernahrung" aria-labelledby="pet-title">
+      <div class="container pet__inner">
+        <div class="pet__text">
+          <span class="section__eyebrow">Aus Liebe zum Tier</span>
+          <h2 id="pet-title" class="section__title">Frische Tiernahrung – hausgemacht.</h2>
+          <p class="pet__lead">
+            Wir verarbeiten <strong>jeden Teil des Tieres mit Wertschätzung</strong> – auch die,
+            die im Supermarktregal selten ankommen. Daraus entstehen <strong>frische BARF-Mischungen</strong>,
+            <strong>Kauknochen</strong> und <strong>Innereien-Mixe</strong> für Hund und Katze.
+            Aus eigener Schlachtung. Ohne Industriezusätze.
+          </p>
+
+          <ul class="pet__benefits">
+            <li><strong>🐶 100 % Frische</strong> – täglich aus eigener Verarbeitung</li>
+            <li><strong>🌱 Kein Industriefutter</strong> – keine Konservierungsstoffe, kein Getreide-Auffüller</li>
+            <li><strong>♻️ Nose-to-tail</strong> – ehrliche Verwertung statt Wegwerfware</li>
+            <li><strong>💰 Fairer Preis</strong> – direkt aus dem Schlachthof, ohne Zwischenhandel</li>
+          </ul>
+
+          <div class="pet__products">
+            <div class="pet-prod">
+              <strong>BARF-Mischung Rind</strong>
+              <span>Muskelfleisch + Pansen + Knochenmehl</span>
+              <em>4,90 € / kg</em>
+            </div>
+            <div class="pet-prod">
+              <strong>BARF-Mischung Geflügel</strong>
+              <span>Hühnerhälse, Herzen, Mägen</span>
+              <em>3,90 € / kg</em>
+            </div>
+            <div class="pet-prod">
+              <strong>Markknochen geräuchert</strong>
+              <span>Rind, lange Kaubeschäftigung</span>
+              <em>2,50 € / Stück</em>
+            </div>
+            <div class="pet-prod">
+              <strong>Pansen frisch</strong>
+              <span>Naturbelassen, Top-Snack</span>
+              <em>3,50 € / 500 g</em>
+            </div>
+          </div>
+
+          <div class="pet__cta">
+            <a href="produkte.html?kategorie=tiernahrung" class="btn btn--primary">Alle Tiernahrung-Produkte</a>
+            <a href="tel:+492348900900" class="btn btn--ghost">📞 Beratung anrufen</a>
+          </div>
+        </div>
+
+        <aside class="pet__media" aria-hidden="true">
+          <div class="pet__image" style="background-image:url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=1200&q=70');"></div>
+          <div class="pet__sticker">
+            <span class="pet__sticker-icon">🐾</span>
+            <strong>Frisch &amp; hausgemacht</strong>
+            <span>Für Hund &amp; Katze</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Über den Betrieb -->
+    <section class="about section" id="betrieb" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div class="about__media" aria-hidden="true">
+          <div class="about__image" style="background-image:url('assets/personal.webp');"></div>
+        </div>
+        <div class="about__text">
+          <span class="section__eyebrow">Über uns</span>
+          <h2 id="about-title" class="section__title">Bodenständig. Ehrlich. Aus Bochum.</h2>
+          <p>
+            Seit vielen Jahren stehen wir für frische Fleisch- und Wurstwaren zu fairen Preisen.
+            Direkt am Standort in Bochum produzieren und verkaufen wir täglich frische Produkte –
+            ohne Umwege, ohne Marketing-Glanz, dafür mit echter Handarbeit.
+          </p>
+          <p>
+            Vom kleinen Einkauf bis zum Grillpaket für die ganze Belegschaft: Wir liefern Qualität
+            und Auswahl, die man schmeckt.
+          </p>
+          <ul class="about__facts">
+            <li><strong>800+</strong><span>Produkte im Sortiment</span></li>
+            <li><strong>1</strong><span>Schlachthof am Standort</span></li>
+            <li><strong>A40</strong><span>Direkte Anbindung</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impressionen aus dem Werksverkauf -->
+    <section class="impressions section section--light" aria-labelledby="impressions-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">Werksverkauf</span>
+          <h2 id="impressions-title" class="section__title">Einblicke in unseren Markt</h2>
+          <p class="section__lead">Helle Verkaufsräume, übersichtliche Regale, echte Auswahl – alles direkt am Standort Bochum.</p>
+        </div>
+        <div class="impressions__grid">
+          <figure class="impression impression--lg" style="background-image:url('assets/eingang.webp');">
+            <figcaption>Eingangsbereich &amp; Kasse</figcaption>
+          </figure>
+          <figure class="impression" style="background-image:url('assets/regale.webp');">
+            <figcaption>Wurst- &amp; Frischetheke</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Standort & Öffnungszeiten -->
+    <section class="location section section--dark" id="standort" aria-labelledby="loc-title">
+      <div class="container location__inner">
+        <div class="location__info">
+          <span class="section__eyebrow section__eyebrow--light">Besuchen Sie uns</span>
+          <h2 id="loc-title" class="section__title section__title--light">Standort &amp; Öffnungszeiten</h2>
+
+          <div class="location__block">
+            <h3>Adresse</h3>
+            <p>K. W. Krümmel GmbH<br />Bochum · direkt an der A40</p>
+            <a class="link link--light" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Krümmel+Bochum">→ Route planen</a>
+          </div>
+
+          <div class="location__block">
+            <h3>Öffnungszeiten</h3>
+            <table class="hours">
+              <tr><td>Mo&nbsp;–&nbsp;Fr</td><td>07:00 – 18:00</td></tr>
+              <tr><td>Samstag</td><td>07:00 – 14:00</td></tr>
+              <tr><td>Sonntag</td><td>geschlossen</td></tr>
+            </table>
+          </div>
+
+          <div class="location__block">
+            <h3 id="kontakt">Telefonisch vorbestellen</h3>
+            <a class="btn btn--primary" href="tel:+492348900900">📞 0234 / 890 09 00</a>
+          </div>
+        </div>
+
+        <div class="location__map">
+          <iframe
+            title="Standort Krümmel Bochum"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=7.18%2C51.46%2C7.26%2C51.50&amp;layer=mapnik"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-final">
+      <div class="container cta-final__inner">
+        <h2>Vorbeikommen lohnt sich.</h2>
+        <p>Frische Ware, faire Preise, direkter Verkauf – wir freuen uns auf Sie.</p>
+        <div class="cta-final__buttons">
+          <a href="#standort" class="btn btn--primary">Jetzt Route planen</a>
+          <a href="#angebote" class="btn btn--ghost-light">Angebote entdecken</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+        <p>Frische Fleisch- &amp; Wurstwaren direkt vom Schlachthof in Bochum.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Schnellzugriff</h4>
+        <ul>
+          <li><a href="#angebote">Angebote</a></li>
+          <li><a href="#produkte">Produkte</a></li>
+          <li><a href="#betrieb">Über uns</a></li>
+          <li><a href="#standort">Standort</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+492348900900">0234 / 890 09 00</a></li>
+          <li>Bochum · A40</li>
+          <li>Mo–Fr 07:00–18:00</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">© <span id="year"></span> K. W. Krümmel GmbH · Alle Rechte vorbehalten</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

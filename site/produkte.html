@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Produktkatalog der K. W. Krümmel GmbH Bochum – Wurstwaren, Fleisch, Grill, Fertiggerichte, Fisch &amp; Käse. Übersichtlich, mit Preisen und Verpackungseinheiten." />
+  <meta name="theme-color" content="#9B2D20" />
+  <title>Sortiment &amp; Produktkatalog – Krümmel Bochum</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/catalog.css" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item">📍 Direkt an der A40 · Bochum</span>
+      <span class="topbar__item">📞 <a href="tel:+492348900900">0234 / 890 09 00</a></span>
+      <span class="topbar__item topbar__item--hide-sm">🕓 Heute geöffnet bis 18:00</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Krümmel Bochum – Startseite">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul class="nav__list">
+          <li><a href="index.html#angebote">Angebote</a></li>
+          <li><a href="produkte.html" aria-current="page">Sortiment</a></li>
+          <li><a href="index.html#betrieb">Betrieb</a></li>
+          <li><a href="index.html#standort">Standort</a></li>
+          <li><a href="index.html#kontakt" class="nav__cta">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="index.html#angebote">Angebote</a>
+      <a href="produkte.html">Sortiment</a>
+      <a href="index.html#betrieb">Betrieb</a>
+      <a href="index.html#standort">Standort</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Lieferservice-Banner (Sa & So) -->
+    <section class="delivery-banner" aria-label="Lieferservice am Wochenende">
+      <div class="container delivery-banner__inner">
+        <div class="delivery-banner__icon" aria-hidden="true">🚚</div>
+        <div class="delivery-banner__text">
+          <strong>Wochenend-Lieferung verfügbar</strong>
+          <span>Samstag &amp; Sonntag im Umkreis von 15 km – ab 25 € Bestellwert.</span>
+        </div>
+        <a href="tel:+492348900900" class="delivery-banner__cta">Jetzt bestellen →</a>
+      </div>
+    </section>
+
+    <!-- Catalog hero -->
+    <section class="catalog-hero">
+      <div class="catalog-hero__bg" aria-hidden="true"></div>
+      <div class="catalog-hero__overlay" aria-hidden="true"></div>
+      <div class="container catalog-hero__inner">
+        <span class="hero__eyebrow">Unser Sortiment</span>
+        <h1 class="catalog-hero__title">Produktkatalog</h1>
+        <p class="catalog-hero__subtitle">
+          Über 800 Artikel aus eigener Verarbeitung – Wurstwaren, Fleisch, Grill, Fertiggerichte, Fisch &amp; Käse.
+          Alle Preise gelten im Werksverkauf in Bochum.
+        </p>
+        <div class="catalog-hero__stats">
+          <div><strong>800+</strong><span>Produkte</span></div>
+          <div><strong>6</strong><span>Kategorien</span></div>
+          <div><strong>täglich</strong><span>frisch produziert</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter & Search bar -->
+    <section class="catalog-toolbar" aria-label="Filter und Suche">
+      <div class="container">
+        <div class="toolbar__row">
+          <div class="search">
+            <span class="search__icon" aria-hidden="true">🔍</span>
+            <input
+              type="search"
+              id="search"
+              placeholder="Produkt suchen – z. B. „Bockwurst", „Schinken", „Grill" …"
+              aria-label="Produktsuche"
+              autocomplete="off"
+            />
+          </div>
+          <div class="sort">
+            <label for="sort">Sortieren:</label>
+            <select id="sort" aria-label="Sortierung wählen">
+              <option value="default">Empfehlung</option>
+              <option value="price-asc">Preis aufsteigend</option>
+              <option value="price-desc">Preis absteigend</option>
+              <option value="name">Name (A–Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="chips" role="tablist" aria-label="Kategorien">
+          <button class="chip is-active" data-cat="alle" role="tab" aria-selected="true">Alle</button>
+          <button class="chip chip--highlight" data-cat="frankfurter" role="tab">⭐ Frankfurter</button>
+          <button class="chip" data-cat="wurst" role="tab">🌭 Wurstwaren</button>
+          <button class="chip" data-cat="fleisch" role="tab">🥩 Fleisch</button>
+          <button class="chip" data-cat="grill" role="tab">🔥 Grill</button>
+          <button class="chip" data-cat="fertig" role="tab">🍲 Fertiggerichte</button>
+          <button class="chip" data-cat="fisch-kaese" role="tab">🐟 Fisch &amp; Käse</button>
+          <button class="chip" data-cat="suppen" role="tab">🥣 Suppen</button>
+          <button class="chip chip--pet" data-cat="tiernahrung" role="tab">🐾 Tiernahrung</button>
+        </div>
+
+        <div class="toolbar__meta">
+          <span id="result-count">Alle Produkte</span>
+          <span class="toolbar__hint">Preise gültig im Werksverkauf · Solange der Vorrat reicht</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalog grid -->
+    <section class="catalog">
+      <div class="container">
+        <div class="catalog__grid" id="catalog-grid">
+          <!-- Cards rendered by JS from products.js -->
+        </div>
+
+        <p class="catalog__empty" id="catalog-empty" hidden>
+          Keine Produkte gefunden. Probieren Sie eine andere Kategorie oder einen anderen Suchbegriff.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-final">
+      <div class="container cta-final__inner">
+        <h2>Lieblingsprodukt entdeckt?</h2>
+        <p>Rufen Sie uns an, schreiben Sie uns auf WhatsApp oder kommen Sie direkt vorbei.</p>
+        <div class="cta-final__buttons">
+          <a href="tel:+492348900900" class="btn btn--primary">📞 Telefonisch vorbestellen</a>
+          <a href="https://wa.me/492348900900?text=Hallo%2C%20ich%20m%C3%B6chte%20vorbestellen%3A" target="_blank" rel="noopener" class="btn btn--ghost-light">💬 WhatsApp-Bestellung</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+        <p>Frische Fleisch- &amp; Wurstwaren direkt vom Schlachthof in Bochum.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Schnellzugriff</h4>
+        <ul>
+          <li><a href="index.html#angebote">Angebote</a></li>
+          <li><a href="produkte.html">Sortiment</a></li>
+          <li><a href="index.html#betrieb">Über uns</a></li>
+          <li><a href="index.html#standort">Standort</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+492348900900">0234 / 890 09 00</a></li>
+          <li>Bochum · A40</li>
+          <li>Mo–Fr 07:00–18:00</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">© <span id="year"></span> K. W. Krümmel GmbH · Alle Rechte vorbehalten</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+</body>
+</html>
