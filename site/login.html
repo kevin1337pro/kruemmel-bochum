@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anmelden oder Konto erstellen – Krümmel Bochum. Schneller bestellen, Lieferadresse speichern, Bestellhistorie einsehen." />
+  <meta name="theme-color" content="#9B2D20" />
+  <title>Anmelden – Krümmel Bochum</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body class="page-login">
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item">📍 Direkt an der A40 · Bochum</span>
+      <span class="topbar__item">📞 <a href="tel:+492348900900">0234 / 890 09 00</a></span>
+    </div>
+  </div>
+
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Krümmel Bochum – Startseite">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul class="nav__list">
+          <li><a href="index.html#angebote">Angebote</a></li>
+          <li><a href="produkte.html">Sortiment</a></li>
+          <li><a href="index.html#betrieb">Betrieb</a></li>
+          <li><a href="index.html#standort">Standort</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="kasse.html" class="header-icon-btn header-icon-btn--cart" title="Warenkorb">
+          <span class="header-icon-btn__icon">🛒</span>
+          <span class="header-icon-btn__badge" data-cart-count>0</span>
+        </a>
+      </div>
+      <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="index.html#angebote">Angebote</a>
+      <a href="produkte.html">Sortiment</a>
+      <a href="index.html#betrieb">Betrieb</a>
+      <a href="index.html#standort">Standort</a>
+      <a href="kasse.html">Warenkorb</a>
+    </div>
+  </header>
+
+  <main class="login-page">
+    <div class="container login-grid">
+
+      <!-- Linke Spalte: Vorteile -->
+      <aside class="login-side">
+        <span class="login-side__eyebrow">Mein Krümmel-Konto</span>
+        <h1>Schneller bestellen.<br />Bequemer wiederholen.</h1>
+        <p>Mit einem kostenlosen Konto sparen Sie Zeit bei jeder Bestellung – und behalten Ihre Lieblings­produkte im Blick.</p>
+
+        <ul class="login-benefits">
+          <li>
+            <span class="login-benefits__icon">⚡</span>
+            <div>
+              <strong>Schneller Checkout</strong>
+              <span>Adresse und Kontakt sind beim nächsten Mal vorausgefüllt.</span>
+            </div>
+          </li>
+          <li>
+            <span class="login-benefits__icon">📋</span>
+            <div>
+              <strong>Bestellhistorie</strong>
+              <span>Frühere Bestellungen mit einem Klick wiederholen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="login-benefits__icon">⭐</span>
+            <div>
+              <strong>Lieblingsprodukte</strong>
+              <span>Speichern, was Sie regelmäßig kaufen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="login-benefits__icon">🔒</span>
+            <div>
+              <strong>Keine Zahlungsdaten</strong>
+              <span>Bezahlung weiterhin erst bei Lieferung. Wir speichern keine Kartendaten.</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="login-side__alt">
+          <a href="kasse.html">Lieber als Gast bestellen? →</a>
+        </div>
+      </aside>
+
+      <!-- Rechte Spalte: Auth-Card -->
+      <section class="auth-card" aria-labelledby="auth-title">
+
+        <!-- Eingeloggt-Ansicht -->
+        <div class="auth-card__inner auth-card__inner--account" data-view="account" hidden>
+          <div class="account-greeting">
+            <div class="account-avatar" aria-hidden="true">👤</div>
+            <h2>Hallo <span data-auth-name></span>!</h2>
+            <p id="account-email"></p>
+          </div>
+          <div class="account-actions">
+            <a href="kasse.html" class="btn btn--primary">🛒 Zum Warenkorb</a>
+            <a href="produkte.html" class="btn btn--ghost">Sortiment durchstöbern</a>
+            <button type="button" class="btn btn--ghost" id="logout-btn">Abmelden</button>
+          </div>
+        </div>
+
+        <!-- Auth-Formular -->
+        <div class="auth-card__inner" data-view="auth">
+          <div class="auth-tabs" role="tablist">
+            <button class="auth-tab is-active" data-tab="login" role="tab" aria-selected="true">Anmelden</button>
+            <button class="auth-tab" data-tab="register" role="tab" aria-selected="false">Registrieren</button>
+          </div>
+
+          <!-- Login -->
+          <form class="auth-form is-active" data-form="login" novalidate>
+            <h2 id="auth-title" class="auth-card__title">Willkommen zurück</h2>
+            <div class="field">
+              <label for="login-email">E-Mail</label>
+              <input type="email" id="login-email" name="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="login-password">Passwort</label>
+              <input type="password" id="login-password" name="password" required autocomplete="current-password" />
+              <a href="#" class="field__forgot">Passwort vergessen?</a>
+            </div>
+            <div class="auth-form__error" data-error hidden></div>
+            <button type="submit" class="btn btn--primary btn--block">Anmelden</button>
+            <p class="auth-form__switch">
+              Noch kein Konto?
+              <button type="button" class="auth-form__switch-btn" data-switch-to="register">Jetzt registrieren →</button>
+            </p>
+          </form>
+
+          <!-- Register -->
+          <form class="auth-form" data-form="register" novalidate>
+            <h2 class="auth-card__title">Konto erstellen</h2>
+            <div class="field">
+              <label for="reg-name">Vor- und Nachname</label>
+              <input type="text" id="reg-name" name="name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="reg-email">E-Mail</label>
+              <input type="email" id="reg-email" name="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="reg-phone">Telefon (optional)</label>
+              <input type="tel" id="reg-phone" name="phone" autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label for="reg-password">Passwort wählen</label>
+              <input type="password" id="reg-password" name="password" required minlength="6" autocomplete="new-password" />
+              <span class="field__hint">Mindestens 6 Zeichen.</span>
+            </div>
+            <label class="agb-check">
+              <input type="checkbox" required />
+              <span>Ich akzeptiere die AGB und Datenschutz­hinweise.</span>
+            </label>
+            <div class="auth-form__error" data-error hidden></div>
+            <button type="submit" class="btn btn--primary btn--block">Kostenlos registrieren</button>
+            <p class="auth-form__switch">
+              Schon ein Konto?
+              <button type="button" class="auth-form__switch-btn" data-switch-to="login">Jetzt anmelden →</button>
+            </p>
+          </form>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+        <p>Frische Fleisch- &amp; Wurstwaren direkt vom Schlachthof in Bochum.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Schnellzugriff</h4>
+        <ul>
+          <li><a href="index.html#angebote">Angebote</a></li>
+          <li><a href="produkte.html">Sortiment</a></li>
+          <li><a href="kasse.html">Warenkorb</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+492348900900">0234 / 890 09 00</a></li>
+          <li>Bochum · A40</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">© <span id="year"></span> K. W. Krümmel GmbH</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/login.js" defer></script>
+</body>
+</html>

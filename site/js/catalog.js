@@ -66,8 +66,13 @@
           <div class="card__pack">Verpackungseinheit: <strong>${p.packaging}</strong></div>
 
           <div class="card__actions">
-            <a class="btn btn--primary btn--sm" href="tel:+492348900900" aria-label="Anrufen für Vorbestellung von ${p.name}">📞 Vorbestellen</a>
-            <a class="btn btn--ghost btn--sm" target="_blank" rel="noopener" href="https://wa.me/492348900900?text=${waText}" aria-label="WhatsApp-Nachricht senden">💬 WhatsApp</a>
+            <button class="btn btn--primary btn--block card__add" data-add-id="${p.id}" aria-label="${p.name} in den Warenkorb">
+              🛒 In den Warenkorb
+            </button>
+          </div>
+          <div class="card__quick">
+            <a href="tel:+492348900900" class="card__quick-btn" title="Telefonisch bestellen" aria-label="Anrufen">📞</a>
+            <a href="https://wa.me/492348900900?text=${waText}" target="_blank" rel="noopener" class="card__quick-btn" title="WhatsApp" aria-label="WhatsApp">💬</a>
           </div>
         </div>
       </article>
@@ -136,6 +141,23 @@
 
     const label = categoryLabelLong(state.category);
     resultCount.textContent = `${list.length} ${list.length === 1 ? "Produkt" : "Produkte"} · ${label}`;
+
+    // Wire add-to-cart buttons
+    grid.querySelectorAll("[data-add-id]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.addId;
+        const p = products.find((x) => x.id === id);
+        if (p && window.KruemmelCart) {
+          window.KruemmelCart.add(p);
+          btn.classList.add("is-added");
+          btn.innerHTML = "✓ Hinzugefügt";
+          setTimeout(() => {
+            btn.classList.remove("is-added");
+            btn.innerHTML = "🛒 In den Warenkorb";
+          }, 1500);
+        }
+      });
+    });
   }
 
   // Wire up chips

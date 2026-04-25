@@ -354,7 +354,6 @@
   display: flex;
   gap: 8px;
   margin-top: 10px;
-  flex-wrap: wrap;
 }
 .btn--sm {
   padding: 9px 14px;
@@ -362,6 +361,38 @@
   flex: 1;
   min-width: 0;
   white-space: nowrap;
+}
+.card__add {
+  width: 100%;
+  transition: background 0.2s, transform 0.15s;
+}
+.card__add.is-added {
+  background: #2f7d4f;
+  border-color: #2f7d4f;
+}
+.card__quick {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: center;
+}
+.card__quick-btn {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+  flex: 1;
+  max-width: 80px;
+}
+.card__quick-btn:hover {
+  background: #fff;
+  border-color: var(--color-red);
 }
 
 @media (max-width: 540px) {

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bestellung abschließen – Krümmel Bochum. 3 einfache Schritte: Warenkorb prüfen, Liefer- oder Abholdaten angeben, bestätigen." />
+  <meta name="theme-color" content="#9B2D20" />
+  <title>Kasse – Bestellung abschließen | Krümmel Bochum</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item">📍 Direkt an der A40 · Bochum</span>
+      <span class="topbar__item">📞 <a href="tel:+492348900900">0234 / 890 09 00</a></span>
+      <span class="topbar__item topbar__item--hide-sm">🔒 Bezahlung erst bei Lieferung – kein Online-Zahlungsrisiko</span>
+    </div>
+  </div>
+
+  <header class="header" id="site-header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Krümmel Bochum – Startseite">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul class="nav__list">
+          <li><a href="index.html#angebote">Angebote</a></li>
+          <li><a href="produkte.html">Sortiment</a></li>
+          <li><a href="index.html#betrieb">Betrieb</a></li>
+          <li><a href="index.html#standort">Standort</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="login.html" class="header-icon-btn" data-auth-state title="Anmelden">
+          <span class="header-icon-btn__icon">👤</span>
+          <span class="header-icon-btn__label">
+            <span class="when-out">Anmelden</span>
+            <span class="when-in">Hallo, <em data-auth-name></em></span>
+          </span>
+        </a>
+        <a href="kasse.html" class="header-icon-btn header-icon-btn--cart is-active" title="Warenkorb">
+          <span class="header-icon-btn__icon">🛒</span>
+          <span class="header-icon-btn__badge" data-cart-count>0</span>
+        </a>
+      </div>
+      <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="index.html#angebote">Angebote</a>
+      <a href="produkte.html">Sortiment</a>
+      <a href="index.html#betrieb">Betrieb</a>
+      <a href="index.html#standort">Standort</a>
+      <a href="login.html">Anmelden</a>
+      <a href="kasse.html">Warenkorb</a>
+    </div>
+  </header>
+
+  <main class="checkout" id="top">
+    <div class="container">
+
+      <div class="checkout__head">
+        <h1>Bestellung abschließen</h1>
+        <p class="checkout__lead">In 3 einfachen Schritten – ohne Konto, ohne Online-Zahlung. Bezahlung erst bei Lieferung oder Abholung.</p>
+      </div>
+
+      <!-- Stepper -->
+      <ol class="stepper" aria-label="Bestellschritte">
+        <li class="step is-active" data-step="1">
+          <span class="step__num">1</span>
+          <span class="step__label">Warenkorb</span>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step__num">2</span>
+          <span class="step__label">Lieferung &amp; Daten</span>
+        </li>
+        <li class="step" data-step="3">
+          <span class="step__num">3</span>
+          <span class="step__label">Bestätigung</span>
+        </li>
+      </ol>
+
+      <div class="checkout__layout">
+
+        <div class="checkout__main">
+
+          <!-- ════ Schritt 1: Warenkorb ════ -->
+          <section class="step-panel is-active" data-step-panel="1" aria-labelledby="s1-title">
+            <h2 id="s1-title" class="step-panel__title">Ihr Warenkorb</h2>
+
+            <div class="cart-list" id="cart-list">
+              <!-- gerendert von kasse.js -->
+            </div>
+
+            <div class="cart-empty" id="cart-empty" hidden>
+              <div class="cart-empty__icon">🛒</div>
+              <h3>Ihr Warenkorb ist noch leer</h3>
+              <p>Stöbern Sie durch unser Sortiment – über 800 Produkte aus eigener Verarbeitung.</p>
+              <a href="produkte.html" class="btn btn--primary">Zum Sortiment</a>
+            </div>
+
+            <div class="step-panel__actions" data-show-when="cart-not-empty">
+              <a href="produkte.html" class="btn btn--ghost">← Weiter einkaufen</a>
+              <button type="button" class="btn btn--primary" data-next>
+                Weiter zu Lieferdaten →
+              </button>
+            </div>
+          </section>
+
+          <!-- ════ Schritt 2: Lieferung & Daten ════ -->
+          <section class="step-panel" data-step-panel="2" hidden aria-labelledby="s2-title">
+            <h2 id="s2-title" class="step-panel__title">Lieferung &amp; Kontaktdaten</h2>
+
+            <fieldset class="fieldset fieldset--toggle">
+              <legend>Wie möchten Sie Ihre Bestellung erhalten?</legend>
+              <div class="toggle-grid">
+                <label class="toggle-card">
+                  <input type="radio" name="fulfillment" value="lieferung" checked />
+                  <div class="toggle-card__body">
+                    <span class="toggle-card__icon">🚚</span>
+                    <strong>Lieferung</strong>
+                    <span>Sa &amp; So im Umkreis 15 km · ab 4,90 €</span>
+                  </div>
+                </label>
+                <label class="toggle-card">
+                  <input type="radio" name="fulfillment" value="abholung" />
+                  <div class="toggle-card__body">
+                    <span class="toggle-card__icon">🏪</span>
+                    <strong>Abholung</strong>
+                    <span>Werksverkauf Bochum · keine Gebühr</span>
+                  </div>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset" data-show-for="lieferung">
+              <legend>Lieferadresse</legend>
+              <div class="form-grid">
+                <div class="field field--span-2">
+                  <label for="street">Straße &amp; Hausnummer *</label>
+                  <input type="text" id="street" name="street" required autocomplete="street-address" />
+                </div>
+                <div class="field">
+                  <label for="zip">PLZ *</label>
+                  <input type="text" id="zip" name="zip" required pattern="[0-9]{5}" inputmode="numeric" autocomplete="postal-code" />
+                  <span class="field__hint" id="zip-hint"></span>
+                </div>
+                <div class="field">
+                  <label for="city">Ort *</label>
+                  <input type="text" id="city" name="city" required value="Bochum" autocomplete="address-level2" />
+                </div>
+              </div>
+
+              <label for="slot" class="field__label-block">Lieferslot *</label>
+              <select id="slot" name="slot" class="select-block" required>
+                <option value="">Slot wählen …</option>
+                <optgroup label="Samstag">
+                  <option value="sa-10-12">Samstag · 10:00 – 12:00</option>
+                  <option value="sa-12-14">Samstag · 12:00 – 14:00</option>
+                  <option value="sa-14-16">Samstag · 14:00 – 16:00</option>
+                  <option value="sa-16-18">Samstag · 16:00 – 18:00</option>
+                </optgroup>
+                <optgroup label="Sonntag">
+                  <option value="so-10-12">Sonntag · 10:00 – 12:00</option>
+                  <option value="so-12-14">Sonntag · 12:00 – 14:00</option>
+                  <option value="so-14-17">Sonntag · 14:00 – 17:00 (+2 € Sonntagszuschlag)</option>
+                </optgroup>
+              </select>
+            </fieldset>
+
+            <fieldset class="fieldset" data-show-for="abholung" hidden>
+              <legend>Abholung im Werksverkauf</legend>
+              <div class="info-box">
+                <strong>📍 K. W. Krümmel GmbH · Bochum (A40)</strong>
+                <p>Mo–Fr 07:00–18:00 · Sa 07:00–14:00 · So geschlossen</p>
+                <p>Wir benachrichtigen Sie, sobald Ihre Bestellung abholbereit ist – meist innerhalb von 30 Minuten.</p>
+              </div>
+              <label for="pickup-time" class="field__label-block">Wunsch-Abholzeit</label>
+              <input type="text" id="pickup-time" name="pickup-time" placeholder="z. B. heute 16:00" />
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>Ihre Kontaktdaten</legend>
+              <div class="form-grid">
+                <div class="field field--span-2">
+                  <label for="name">Name *</label>
+                  <input type="text" id="name" name="name" required autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="phone">Telefon *</label>
+                  <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+                </div>
+                <div class="field">
+                  <label for="email">E-Mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" />
+                </div>
+                <div class="field field--span-2">
+                  <label for="notes">Anmerkung (optional)</label>
+                  <textarea id="notes" name="notes" rows="2" placeholder="Wunsch zur Verpackung, Klingelschild, etc."></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="step-panel__actions">
+              <button type="button" class="btn btn--ghost" data-prev>← Zurück</button>
+              <button type="button" class="btn btn--primary" data-next>
+                Weiter zur Bestätigung →
+              </button>
+            </div>
+          </section>
+
+          <!-- ════ Schritt 3: Bestätigung ════ -->
+          <section class="step-panel" data-step-panel="3" hidden aria-labelledby="s3-title">
+            <h2 id="s3-title" class="step-panel__title">Bestellung prüfen &amp; absenden</h2>
+
+            <div class="confirm-block">
+              <h3>Lieferung</h3>
+              <div id="confirm-delivery"></div>
+            </div>
+
+            <div class="confirm-block">
+              <h3>Kontakt</h3>
+              <div id="confirm-contact"></div>
+            </div>
+
+            <div class="confirm-block">
+              <h3>Bestellung</h3>
+              <div id="confirm-items"></div>
+            </div>
+
+            <div class="payment-info">
+              <span class="payment-info__icon">🔒</span>
+              <div>
+                <strong>Bezahlung erst bei Lieferung oder Abholung</strong>
+                <p>Bar oder per EC-Karte. Keine Online-Zahlung – kein Risiko.</p>
+              </div>
+            </div>
+
+            <label class="agb-check">
+              <input type="checkbox" id="agb" required />
+              <span>Ich akzeptiere die AGB und habe die Datenschutzerklärung gelesen.</span>
+            </label>
+
+            <div class="step-panel__actions">
+              <button type="button" class="btn btn--ghost" data-prev>← Zurück</button>
+              <button type="button" class="btn btn--primary btn--lg" id="submit-order">
+                ✓ Verbindlich bestellen
+              </button>
+            </div>
+
+            <p class="alt-channel">
+              Lieber telefonisch bestellen?
+              <a href="tel:+492348900900">📞 0234 / 890 09 00</a>
+            </p>
+          </section>
+
+          <!-- ════ Erfolgsbestätigung ════ -->
+          <section class="step-panel step-panel--success" data-step-panel="success" hidden>
+            <div class="success-box">
+              <div class="success-box__icon">✓</div>
+              <h2>Vielen Dank für Ihre Bestellung!</h2>
+              <p class="success-box__lead">Wir haben Ihre Bestellung erhalten und bestätigen sie in Kürze telefonisch oder per E-Mail.</p>
+              <div class="success-box__order" id="success-order"></div>
+              <div class="success-box__cta">
+                <a href="index.html" class="btn btn--primary">Zur Startseite</a>
+                <a href="produkte.html" class="btn btn--ghost">Weiter einkaufen</a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Sticky Order Summary -->
+        <aside class="checkout__summary" id="summary">
+          <div class="summary">
+            <h3 class="summary__title">Bestellübersicht</h3>
+            <ul class="summary__list" id="summary-list"></ul>
+            <div class="summary__row">
+              <span>Zwischensumme</span>
+              <span id="summary-subtotal">0,00 €</span>
+            </div>
+            <div class="summary__row" id="summary-delivery-row">
+              <span>Lieferung</span>
+              <span id="summary-delivery">–</span>
+            </div>
+            <div class="summary__row summary__row--total">
+              <strong>Gesamt</strong>
+              <strong id="summary-total">0,00 €</strong>
+            </div>
+            <div class="summary__progress" id="summary-progress" hidden>
+              <div class="summary__progress-bar">
+                <div class="summary__progress-fill" id="progress-fill"></div>
+              </div>
+              <p id="progress-text"></p>
+            </div>
+            <div class="summary__trust">
+              <p>🔒 Bezahlung bei Erhalt</p>
+              <p>📞 0234 / 890 09 00</p>
+              <p>♻️ Mehrweg-Pfandbox</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="K. W. Krümmel GmbH" />
+        <p>Frische Fleisch- &amp; Wurstwaren direkt vom Schlachthof in Bochum.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Schnellzugriff</h4>
+        <ul>
+          <li><a href="index.html#angebote">Angebote</a></li>
+          <li><a href="produkte.html">Sortiment</a></li>
+          <li><a href="login.html">Mein Konto</a></li>
+          <li><a href="kasse.html">Warenkorb</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+492348900900">0234 / 890 09 00</a></li>
+          <li>Bochum · A40</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">© <span id="year"></span> K. W. Krümmel GmbH</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/kasse.js" defer></script>
+</body>
+</html>

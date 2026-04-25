@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/catalog.css" />
+  <link rel="stylesheet" href="css/shop.css" />
 </head>
 <body>
 
@@ -36,9 +37,21 @@
           <li><a href="produkte.html" aria-current="page">Sortiment</a></li>
           <li><a href="index.html#betrieb">Betrieb</a></li>
           <li><a href="index.html#standort">Standort</a></li>
-          <li><a href="index.html#kontakt" class="nav__cta">Kontakt</a></li>
         </ul>
       </nav>
+      <div class="header__actions">
+        <a href="login.html" class="header-icon-btn" data-auth-state title="Anmelden">
+          <span class="header-icon-btn__icon">👤</span>
+          <span class="header-icon-btn__label">
+            <span class="when-out">Anmelden</span>
+            <span class="when-in">Hallo, <em data-auth-name></em></span>
+          </span>
+        </a>
+        <a href="kasse.html" class="header-icon-btn header-icon-btn--cart" title="Warenkorb">
+          <span class="header-icon-btn__icon">🛒</span>
+          <span class="header-icon-btn__badge" data-cart-count>0</span>
+        </a>
+      </div>
       <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
@@ -48,7 +61,8 @@
       <a href="produkte.html">Sortiment</a>
       <a href="index.html#betrieb">Betrieb</a>
       <a href="index.html#standort">Standort</a>
-      <a href="index.html#kontakt">Kontakt</a>
+      <a href="login.html">Anmelden</a>
+      <a href="kasse.html">Warenkorb</a>
     </div>
   </header>
 
@@ -194,6 +208,8 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/products.js" defer></script>
   <script src="js/catalog.js" defer></script>
 </body>
