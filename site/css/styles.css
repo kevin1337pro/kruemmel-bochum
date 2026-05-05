@@ -84,13 +84,16 @@ a:hover { color: var(--color-red-dark); }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 8px 16px;
   flex-wrap: wrap;
 }
+.topbar__item { white-space: nowrap; }
 .topbar__item a { color: #f7d2cc; }
 .topbar__item a:hover { color: #fff; }
 @media (max-width: 640px) {
+  .topbar { font-size: 12px; padding: 6px 0; }
   .topbar__item--hide-sm { display: none; }
+  .topbar__inner { justify-content: center; gap: 4px 14px; }
 }
 
 /* =========================================================
@@ -113,6 +116,10 @@ a:hover { color: var(--color-red-dark); }
 .header__logo img {
   height: 52px;
   width: auto;
+}
+@media (max-width: 540px) {
+  .header__logo img { height: 40px; }
+  :root { --header-h: 64px; }
 }
 .nav__list {
   display: flex;
@@ -150,6 +157,10 @@ a:hover { color: var(--color-red-dark); }
   border: 0;
   padding: 8px;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 .nav__toggle span {
   display: block;
@@ -201,6 +212,9 @@ a:hover { color: var(--color-red-dark); }
   transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   font-size: 15px;
   letter-spacing: 0.01em;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
 }
 .btn:hover { transform: translateY(-1px); }
 .btn--primary {
@@ -251,6 +265,13 @@ a:hover { color: var(--color-red-dark); }
 .hero__inner {
   padding: 100px 20px 80px;
   max-width: 900px;
+}
+@media (max-width: 540px) {
+  .hero { min-height: clamp(440px, 70vh, 600px); }
+  .hero__inner { padding: 60px 18px 50px; }
+  .hero__cta { gap: 10px; }
+  .hero__cta .btn { flex: 1; min-width: 140px; }
+  .hero__badges { gap: 8px 14px; font-size: 13px; }
 }
 .hero__eyebrow {
   display: inline-block;
@@ -311,6 +332,13 @@ a:hover { color: var(--color-red-dark); }
    ========================================================= */
 .section {
   padding: 90px 0;
+}
+@media (max-width: 880px) {
+  .section { padding: 64px 0; }
+  .section__head { margin-bottom: 32px; }
+}
+@media (max-width: 540px) {
+  .section { padding: 48px 0; }
 }
 .section--light { background: var(--color-bg-soft); }
 .section--dark {
@@ -757,7 +785,9 @@ a:hover { color: var(--color-red-dark); }
   height: 56px;
   width: auto;
   margin-bottom: 14px;
-  filter: brightness(1.05);
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
 }
 .footer__brand p { margin: 0; max-width: 320px; }
 .footer h4 {
@@ -1132,6 +1162,149 @@ a:hover { color: var(--color-red-dark); }
   .pet__benefits { grid-template-columns: 1fr; }
   .pet__products { grid-template-columns: 1fr; }
   .pet__media { aspect-ratio: 3 / 2; }
+}
+
+/* =========================================================
+   Reviews / Testimonials
+   ========================================================= */
+.reviews {
+  background: var(--color-bg-soft);
+  position: relative;
+}
+.reviews__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 44px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-line);
+}
+.reviews__score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 22px 28px;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--color-red);
+  min-width: 200px;
+}
+.reviews__score-num {
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  color: var(--color-red);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.reviews__stars {
+  display: inline-flex;
+  gap: 2px;
+  font-size: 1.1rem;
+  color: #f5b400;
+  letter-spacing: 0.04em;
+}
+.reviews__score-meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+.reviews__score-meta strong { color: var(--color-ink); display: block; }
+.reviews__intro h2 { margin-top: 0; }
+.reviews__intro p {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  margin: 0 0 14px;
+}
+.reviews__google-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-red);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.reviews__google-link:hover { color: var(--color-red-dark); }
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.review {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 24px 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.review:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.review::before {
+  content: "“";
+  position: absolute;
+  top: -10px; left: 18px;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-red);
+  opacity: 0.18;
+}
+.review__stars { color: #f5b400; font-size: 0.95rem; letter-spacing: 0.04em; }
+.review__text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  flex: 1;
+}
+.review__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-line);
+}
+.review__avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.review__author {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.review__name { font-weight: 700; color: var(--color-ink); font-size: 0.92rem; }
+.review__date { font-size: 0.78rem; color: var(--color-muted); }
+.review__source {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.reviews__cta {
+  text-align: center;
+  margin-top: 36px;
+}
+@media (max-width: 880px) {
+  .reviews__head { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+  .reviews__score { margin: 0 auto; min-width: 0; width: 100%; max-width: 320px; }
+  .reviews__grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
 /* =========================================================

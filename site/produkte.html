@@ -3,16 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Produktkatalog der K. W. Krümmel GmbH Bochum – Wurstwaren, Fleisch, Grill, Fertiggerichte, Fisch &amp; Käse. Übersichtlich, mit Preisen und Verpackungseinheiten." />
+
+  <title>Sortiment &amp; Produktkatalog – Krümmel Bochum | 800+ Fleisch- &amp; Wurstwaren</title>
+  <meta name="description" content="Über 800 Produkte aus eigener Verarbeitung: Wurstwaren, Fleisch, Frankfurter, Grill, Fertiggerichte, Fisch &amp; Käse, BARF-Tiernahrung. Preise inkl. Verpackungseinheit. Werksverkauf Bochum-Hamme." />
+  <meta name="keywords" content="Wurst Bochum, Fleisch Bochum, Frankfurter Bochum, Grillfleisch, BARF Bochum, Werksverkauf Sortiment, Krümmel Produktkatalog" />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#9B2D20" />
-  <title>Sortiment &amp; Produktkatalog – Krümmel Bochum</title>
+  <link rel="canonical" href="https://kruemmel-bochum.de/produkte.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="Krümmel Bochum" />
+  <meta property="og:title" content="Sortiment &amp; Produktkatalog – Krümmel Bochum" />
+  <meta property="og:description" content="Über 800 Produkte aus eigener Verarbeitung – Fleisch, Wurst, Frankfurter, Grill, Fisch &amp; Käse, BARF." />
+  <meta property="og:url" content="https://kruemmel-bochum.de/produkte.html" />
+  <meta property="og:image" content="https://kruemmel-bochum.de/assets/regale.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://kruemmel-bochum.de/assets/regale.webp" />
+
   <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/catalog.css" />
   <link rel="stylesheet" href="css/shop.css" />
+
+  <!-- Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://kruemmel-bochum.de/" },
+      { "@type": "ListItem", "position": 2, "name": "Sortiment", "item": "https://kruemmel-bochum.de/produkte.html" }
+    ]
+  }
+  </script>
+
+  <!-- Sortiment-Übersicht -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Sortiment Krümmel Bochum",
+    "description": "Produktkatalog der K. W. Krümmel GmbH mit über 800 Artikeln aus eigener Verarbeitung.",
+    "url": "https://kruemmel-bochum.de/produkte.html",
+    "isPartOf": { "@id": "https://kruemmel-bochum.de/#business" },
+    "about": [
+      "Fleisch", "Wurstwaren", "Frankfurter", "Grillprodukte",
+      "Fertiggerichte", "Fisch & Käse", "Suppen", "Tiernahrung"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -102,38 +146,57 @@
     <!-- Filter & Search bar -->
     <section class="catalog-toolbar" aria-label="Filter und Suche">
       <div class="container">
-        <div class="toolbar__row">
-          <div class="search">
-            <span class="search__icon" aria-hidden="true">🔍</span>
-            <input
-              type="search"
-              id="search"
-              placeholder="Produkt suchen – z. B. „Bockwurst", „Schinken", „Grill" …"
-              aria-label="Produktsuche"
-              autocomplete="off"
-            />
-          </div>
-          <div class="sort">
-            <label for="sort">Sortieren:</label>
-            <select id="sort" aria-label="Sortierung wählen">
-              <option value="default">Empfehlung</option>
-              <option value="price-asc">Preis aufsteigend</option>
-              <option value="price-desc">Preis absteigend</option>
-              <option value="name">Name (A–Z)</option>
-            </select>
-          </div>
-        </div>
 
-        <div class="chips" role="tablist" aria-label="Kategorien">
-          <button class="chip is-active" data-cat="alle" role="tab" aria-selected="true">Alle</button>
-          <button class="chip chip--highlight" data-cat="frankfurter" role="tab">⭐ Frankfurter</button>
-          <button class="chip" data-cat="wurst" role="tab">🌭 Wurstwaren</button>
-          <button class="chip" data-cat="fleisch" role="tab">🥩 Fleisch</button>
-          <button class="chip" data-cat="grill" role="tab">🔥 Grill</button>
-          <button class="chip" data-cat="fertig" role="tab">🍲 Fertiggerichte</button>
-          <button class="chip" data-cat="fisch-kaese" role="tab">🐟 Fisch &amp; Käse</button>
-          <button class="chip" data-cat="suppen" role="tab">🥣 Suppen</button>
-          <button class="chip chip--pet" data-cat="tiernahrung" role="tab">🐾 Tiernahrung</button>
+        <!-- Mobile-Toggle: blendet das Panel ein/aus -->
+        <button
+          type="button"
+          class="toolbar__mobile-toggle"
+          id="toolbar-toggle"
+          aria-expanded="false"
+          aria-controls="toolbar-panel"
+        >
+          <span class="toolbar__mobile-icon" aria-hidden="true">🔍</span>
+          <span class="toolbar__mobile-text">
+            <strong id="mobile-active-cat">Alle Produkte</strong>
+            <span>Filter &amp; Sortieren</span>
+          </span>
+          <span class="toolbar__mobile-chevron" aria-hidden="true">▾</span>
+        </button>
+
+        <div class="toolbar__panel" id="toolbar-panel">
+          <div class="toolbar__row">
+            <div class="search">
+              <span class="search__icon" aria-hidden="true">🔍</span>
+              <input
+                type="search"
+                id="search"
+                placeholder="Produkt suchen – z. B. „Bockwurst", „Schinken" …"
+                aria-label="Produktsuche"
+                autocomplete="off"
+              />
+            </div>
+            <div class="sort">
+              <label for="sort">Sortieren:</label>
+              <select id="sort" aria-label="Sortierung wählen">
+                <option value="default">Empfehlung</option>
+                <option value="price-asc">Preis aufsteigend</option>
+                <option value="price-desc">Preis absteigend</option>
+                <option value="name">Name (A–Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="chips" role="tablist" aria-label="Kategorien">
+            <button class="chip is-active" data-cat="alle" role="tab" aria-selected="true">Alle</button>
+            <button class="chip chip--highlight" data-cat="frankfurter" role="tab">⭐ Frankfurter</button>
+            <button class="chip" data-cat="wurst" role="tab">🌭 Wurstwaren</button>
+            <button class="chip" data-cat="fleisch" role="tab">🥩 Fleisch</button>
+            <button class="chip" data-cat="grill" role="tab">🔥 Grill</button>
+            <button class="chip" data-cat="fertig" role="tab">🍲 Fertiggerichte</button>
+            <button class="chip" data-cat="fisch-kaese" role="tab">🐟 Fisch &amp; Käse</button>
+            <button class="chip" data-cat="suppen" role="tab">🥣 Suppen</button>
+            <button class="chip chip--pet" data-cat="tiernahrung" role="tab">🐾 Tiernahrung</button>
+          </div>
         </div>
 
         <div class="toolbar__meta">

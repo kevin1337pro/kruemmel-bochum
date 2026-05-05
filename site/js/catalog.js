@@ -9,8 +9,26 @@
   const sort = document.getElementById("sort");
   const chips = document.querySelectorAll(".chip");
   const resultCount = document.getElementById("result-count");
+  const toolbarToggle = document.getElementById("toolbar-toggle");
+  const toolbarPanel = document.getElementById("toolbar-panel");
+  const mobileActiveCat = document.getElementById("mobile-active-cat");
 
   if (!grid) return;
+
+  function isMobileToolbar() {
+    return window.matchMedia("(max-width: 640px)").matches;
+  }
+  function setPanelOpen(open) {
+    if (!toolbarPanel || !toolbarToggle) return;
+    toolbarPanel.dataset.open = String(open);
+    toolbarToggle.setAttribute("aria-expanded", String(open));
+  }
+  if (toolbarToggle && toolbarPanel) {
+    toolbarToggle.addEventListener("click", () => {
+      const open = toolbarPanel.dataset.open === "true";
+      setPanelOpen(!open);
+    });
+  }
 
   const state = {
     category: getInitialCategory(),
@@ -141,6 +159,9 @@
 
     const label = categoryLabelLong(state.category);
     resultCount.textContent = `${list.length} ${list.length === 1 ? "Produkt" : "Produkte"} · ${label}`;
+    if (mobileActiveCat) {
+      mobileActiveCat.textContent = `${label} (${list.length})`;
+    }
 
     // Wire add-to-cart buttons
     grid.querySelectorAll("[data-add-id]").forEach((btn) => {
@@ -180,6 +201,9 @@
       window.history.replaceState({}, "", newUrl);
 
       applyFilters();
+
+      // Auf Mobile: Panel nach Auswahl schließen
+      if (isMobileToolbar()) setPanelOpen(false);
     });
   });
 
@@ -207,8 +231,17 @@
     sort.addEventListener("change", (e) => {
       state.sort = e.target.value;
       applyFilters();
+      if (isMobileToolbar()) setPanelOpen(false);
     });
   }
+
+  // Klick außerhalb der Toolbar schließt das Panel auf Mobile
+  document.addEventListener("click", (e) => {
+    if (!isMobileToolbar()) return;
+    if (!toolbarPanel || toolbarPanel.dataset.open !== "true") return;
+    const inside = e.target.closest(".catalog-toolbar");
+    if (!inside) setPanelOpen(false);
+  });
 
   applyFilters();
 })();

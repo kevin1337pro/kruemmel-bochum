@@ -225,9 +225,10 @@
     $$("[data-show-for]").forEach((el) => {
       el.hidden = el.dataset.showFor !== f;
     });
-    document.getElementById("street").required = f === "lieferung";
-    document.getElementById("zip").required = f === "lieferung";
-    document.getElementById("slot").required = f === "lieferung";
+    ["street", "zip", "slot"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.required = f === "lieferung";
+    });
   }
 
   function validateStep2() {
@@ -235,9 +236,21 @@
     if (formData.fulfillment === "lieferung") {
       required.push("street", "zip", "slot");
     }
+    if (formData.fulfillment === "lieferung" && formData.zip) {
+      if (!/^[0-9]{5}$/.test(formData.zip.trim())) {
+        const z = document.getElementById("zip");
+        if (z) {
+          z.focus();
+          z.classList.add("is-invalid");
+          setTimeout(() => z.classList.remove("is-invalid"), 1500);
+        }
+        return false;
+      }
+    }
     for (const id of required) {
       const el = document.getElementById(id);
-      if (!el || !el.value.trim()) {
+      if (!el) continue;
+      if (!el.value.trim()) {
         el.focus();
         el.classList.add("is-invalid");
         setTimeout(() => el.classList.remove("is-invalid"), 1500);

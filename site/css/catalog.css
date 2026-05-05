@@ -73,8 +73,125 @@
 }
 .search {
   flex: 1;
-  min-width: 240px;
+  min-width: 200px;
   position: relative;
+}
+.search input { font-size: 16px; }
+.sort select { font-size: 16px; min-height: 44px; }
+/* Mobile-Toggle ist auf Desktop unsichtbar */
+.toolbar__mobile-toggle { display: none; }
+
+@media (max-width: 640px) {
+  .catalog-toolbar { padding: 10px 0 8px; }
+
+  /* Toggle-Button als kompakte Pille */
+  .toolbar__mobile-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    -webkit-tap-highlight-color: transparent;
+    text-align: left;
+  }
+  .toolbar__mobile-toggle:hover,
+  .toolbar__mobile-toggle[aria-expanded="true"] {
+    border-color: var(--color-red);
+    background: #fff;
+  }
+  .toolbar__mobile-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .toolbar__mobile-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    min-width: 0;
+  }
+  .toolbar__mobile-text strong {
+    font-size: 15px;
+    color: var(--color-ink);
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .toolbar__mobile-text span {
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+  .toolbar__mobile-chevron {
+    font-size: 14px;
+    color: var(--color-muted);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  .toolbar__mobile-toggle[aria-expanded="true"] .toolbar__mobile-chevron {
+    transform: rotate(180deg);
+    color: var(--color-red);
+  }
+
+  /* Panel ist standardmäßig versteckt auf Mobile */
+  .toolbar__panel {
+    display: none;
+    margin-top: 12px;
+    padding-top: 4px;
+  }
+  .toolbar__panel[data-open="true"] {
+    display: block;
+    animation: toolbarSlide 0.2s ease;
+  }
+  @keyframes toolbarSlide {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .toolbar__row { gap: 8px; flex-wrap: nowrap; }
+  .search { min-width: 0; flex: 1 1 auto; }
+  .search input {
+    padding: 10px 12px 10px 36px;
+    font-size: 16px;
+  }
+  .search__icon { left: 10px; }
+
+  .sort { flex: 0 0 auto; gap: 0; }
+  .sort label { display: none; }
+  .sort select {
+    padding: 10px 30px 10px 12px;
+    font-size: 14px;
+    min-height: 44px;
+    max-width: 130px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23666' d='M6 8L0 0h12z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+  }
+
+  .chips {
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    padding: 8px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .toolbar__meta { margin-top: 8px; font-size: 12px; }
+  .toolbar__hint { display: none; }
 }
 .search__icon {
   position: absolute;
@@ -377,18 +494,19 @@
   justify-content: center;
 }
 .card__quick-btn {
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   border-radius: var(--radius-sm);
   background: var(--color-bg-soft);
   border: 1px solid var(--color-line);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: none;
   transition: background 0.15s, border-color 0.15s;
   flex: 1;
-  max-width: 80px;
+  max-width: 88px;
+  -webkit-tap-highlight-color: transparent;
 }
 .card__quick-btn:hover {
   background: #fff;
@@ -398,4 +516,11 @@
 @media (max-width: 540px) {
   .card__media { height: 180px; }
   .card__price { font-size: 1.6rem; }
+  .catalog-hero { padding: 36px 0 28px; }
+  .catalog-hero__title { margin: 8px 0 10px; }
+  .catalog-hero__subtitle { font-size: 0.98rem; margin-bottom: 16px; }
+  .catalog-hero__stats { gap: 14px 24px; }
+  .catalog-hero__stats strong { font-size: 1.6rem; }
+  .catalog-hero__stats span { font-size: 0.8rem; }
+  .catalog { padding: 20px 0 60px; }
 }

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /kasse.html
+Disallow: /login.html
+
+Sitemap: https://kruemmel-bochum.de/sitemap.xml
