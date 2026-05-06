@@ -53,6 +53,42 @@
     revealCandidates.forEach((el) => el.classList.add("is-visible"));
   }
 
+  // Newsletter (LocalStorage – Backend folgt später)
+  const nlForm = document.getElementById("newsletter-form");
+  if (nlForm) {
+    const emailEl = document.getElementById("newsletter-email");
+    const consentEl = document.getElementById("newsletter-consent");
+    const errEl = document.getElementById("newsletter-error");
+    const okEl = document.getElementById("newsletter-success");
+
+    function showErr(msg) {
+      errEl.textContent = msg;
+      errEl.classList.add("is-visible");
+      okEl.classList.remove("is-visible");
+    }
+
+    nlForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      errEl.classList.remove("is-visible");
+      const email = (emailEl.value || "").trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        showErr("Bitte gib eine gültige E-Mail-Adresse ein.");
+        emailEl.focus();
+        return;
+      }
+      if (!consentEl.checked) {
+        showErr("Bitte bestätige die Datenschutzhinweise.");
+        return;
+      }
+      const list = JSON.parse(localStorage.getItem("kruemmel_newsletter_v1") || "[]");
+      if (!list.includes(email)) list.push(email);
+      localStorage.setItem("kruemmel_newsletter_v1", JSON.stringify(list));
+      okEl.classList.add("is-visible");
+      nlForm.querySelector(".newsletter__field").style.display = "none";
+      nlForm.querySelector(".newsletter__consent").style.display = "none";
+    });
+  }
+
   // Sticky header shadow on scroll
   const header = document.getElementById("site-header");
   if (header) {
