@@ -184,7 +184,7 @@
           <li><a href="#angebote">Angebote</a></li>
           <li><a href="#frankfurter">Frankfurter</a></li>
           <li><a href="produkte.html">Sortiment</a></li>
-          <li><a href="#tiernahrung">Tiernahrung</a></li>
+          <li><a href="tiernahrung.html">Tiernahrung</a></li>
           <li><a href="#bewertungen">Bewertungen</a></li>
           <li><a href="#betrieb">Betrieb</a></li>
         </ul>
@@ -210,7 +210,7 @@
       <a href="#angebote">Angebote</a>
       <a href="#frankfurter">Frankfurter</a>
       <a href="produkte.html">Sortiment</a>
-      <a href="#tiernahrung">Tiernahrung</a>
+      <a href="tiernahrung.html">Tiernahrung</a>
       <a href="#bewertungen">Bewertungen</a>
       <a href="#betrieb">Betrieb</a>
       <a href="#standort">Standort</a>
@@ -505,6 +505,36 @@
             <span>Für Hund &amp; Katze</span>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- Tier-Slider: Werbe-Banner mit alternierenden Übergängen -->
+    <section class="tier-slider section section--light" aria-labelledby="tier-slider-title">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow">Premium Tiernahrung</span>
+          <h2 id="tier-slider-title" class="section__title">Beste Qualität für Ihren Vierbeiner.</h2>
+          <p class="section__lead">Natürlich. Nahrhaft. Nachhaltig. Aus eigener Verarbeitung.</p>
+        </div>
+
+        <div
+          class="tier-slider__stage tier-slider__stage--banner"
+          id="tier-slider"
+          role="region"
+          aria-roledescription="Bild-Slider"
+          aria-label="Tiernahrung Werbung"
+        >
+          <figure class="tier-slide is-active" data-slide="0" style="background-image:url('assets/tier-werbung-1.png');" aria-label="Premium Tiernahrung – Beste Qualität für Ihren Vierbeiner"></figure>
+          <figure class="tier-slide" data-slide="1" style="background-image:url('assets/tier-werbung-2.png');" aria-label="Mein Futter? Nur das Beste – Natürliche Zutaten, hochwertiges Fleisch"></figure>
+
+          <button class="tier-slider__nav tier-slider__nav--prev" type="button" aria-label="Vorheriges Bild" data-tier-prev>‹</button>
+          <button class="tier-slider__nav tier-slider__nav--next" type="button" aria-label="Nächstes Bild" data-tier-next>›</button>
+
+          <div class="tier-slider__dots" role="tablist" aria-label="Slide auswählen">
+            <button type="button" class="tier-dot is-active" data-go="0" aria-label="Slide 1"></button>
+            <button type="button" class="tier-dot" data-go="1" aria-label="Slide 2"></button>
+          </div>
+        </div>
       </div>
     </section>
 

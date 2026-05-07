@@ -53,6 +53,136 @@
     revealCandidates.forEach((el) => el.classList.add("is-visible"));
   }
 
+  // Tier-Slider mit alternierenden Übergangsrichtungen
+  const tierStage = document.getElementById("tier-slider");
+  if (tierStage) {
+    const slides = Array.from(tierStage.querySelectorAll(".tier-slide"));
+    const dots = Array.from(tierStage.querySelectorAll(".tier-dot"));
+    const prevBtn = tierStage.querySelector("[data-tier-prev]");
+    const nextBtn = tierStage.querySelector("[data-tier-next]");
+    const AUTO_MS = 5000;
+    const directions = ["right", "down", "left", "up"];
+    let current = 0;
+    let dirIndex = 0;
+    let timer = null;
+    let isAnimating = false;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function clearLeaving() {
+      slides.forEach((s) =>
+        s.classList.remove(
+          "is-leaving-left", "is-leaving-right",
+          "is-leaving-up",   "is-leaving-down",
+          "is-entering-from-left", "is-entering-from-right",
+          "is-entering-from-top",  "is-entering-from-bottom"
+        )
+      );
+    }
+
+    function go(targetIdx, forcedDir) {
+      if (isAnimating || targetIdx === current) return;
+      isAnimating = true;
+
+      const dir = forcedDir || directions[dirIndex % directions.length];
+      dirIndex++;
+
+      const leaving = slides[current];
+      const entering = slides[targetIdx];
+
+      const leaveMap   = { right: "is-leaving-left",  left: "is-leaving-right", down: "is-leaving-up",   up: "is-leaving-down" };
+      const enterStart = { right: "is-entering-from-right", left: "is-entering-from-left", down: "is-entering-from-bottom", up: "is-entering-from-top" };
+
+      // Reset
+      clearLeaving();
+
+      // Eingehende Slide an Startposition setzen (ohne Transition)
+      entering.classList.add(enterStart[dir]);
+
+      // Force reflow, dann Klassen tauschen
+      // eslint-disable-next-line no-unused-expressions
+      entering.offsetHeight;
+
+      // Aktive Slide raus, neue rein
+      leaving.classList.remove("is-active");
+      leaving.classList.add(leaveMap[dir]);
+      entering.classList.remove(enterStart[dir]);
+      entering.classList.add("is-active");
+
+      // Dots
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === targetIdx));
+
+      current = targetIdx;
+
+      const onEnd = () => {
+        clearLeaving();
+        isAnimating = false;
+        entering.removeEventListener("transitionend", onEnd);
+      };
+      entering.addEventListener("transitionend", onEnd);
+      // Fallback falls transitionend nicht feuert
+      setTimeout(onEnd, 1100);
+    }
+
+    function next() { go((current + 1) % slides.length); }
+    function prev() {
+      const dir = directions[dirIndex % directions.length];
+      const reverseMap = { right: "left", left: "right", up: "down", down: "up" };
+      go((current - 1 + slides.length) % slides.length, reverseMap[dir]);
+    }
+
+    function startAuto() {
+      if (reduceMotion) return;
+      stopAuto();
+      timer = setInterval(next, AUTO_MS);
+    }
+    function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+
+    if (nextBtn) nextBtn.addEventListener("click", () => { next(); startAuto(); });
+    if (prevBtn) prevBtn.addEventListener("click", () => { prev(); startAuto(); });
+    dots.forEach((d) =>
+      d.addEventListener("click", () => {
+        const idx = parseInt(d.dataset.go, 10);
+        if (!isNaN(idx)) { go(idx); startAuto(); }
+      })
+    );
+
+    // Pause bei Hover/Focus
+    tierStage.addEventListener("mouseenter", stopAuto);
+    tierStage.addEventListener("mouseleave", startAuto);
+    tierStage.addEventListener("focusin", stopAuto);
+    tierStage.addEventListener("focusout", startAuto);
+
+    // Pause wenn nicht im Viewport (Performance)
+    if ("IntersectionObserver" in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting ? startAuto() : stopAuto()));
+      }, { threshold: 0.25 });
+      obs.observe(tierStage);
+    } else {
+      startAuto();
+    }
+
+    // Touch-Swipe (links/rechts)
+    let touchStartX = 0, touchStartY = 0;
+    tierStage.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      stopAuto();
+    }, { passive: true });
+    tierStage.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) go((current + 1) % slides.length, "right");
+        else        go((current - 1 + slides.length) % slides.length, "left");
+      } else if (Math.abs(dy) > 40) {
+        if (dy < 0) go((current + 1) % slides.length, "down");
+        else        go((current - 1 + slides.length) % slides.length, "up");
+      }
+      startAuto();
+    }, { passive: true });
+  }
+
   // Newsletter (LocalStorage – Backend folgt später)
   const nlForm = document.getElementById("newsletter-form");
   if (nlForm) {
